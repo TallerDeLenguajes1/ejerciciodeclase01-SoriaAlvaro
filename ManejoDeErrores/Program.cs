@@ -13,9 +13,16 @@ namespace ManejoDeErrores
             list[3] = "Wednesday";
             list[4] = "Thursday";
 
-            for (int i = 0; i <= 5; i++)
-            {
-                Console.WriteLine(list[i].ToString());
+            try{
+                for (int i = 0; i <= 5; i++)
+                {
+                    Console.WriteLine(list[i].ToString());
+                }
+            }catch(IndexOutOfRangeException ex){
+                System.Console.WriteLine("El índice esta fuera de los límites de la matriz.");
+                System.Console.WriteLine("Modifique el indice: largo de la matriz - 1.");
+            }catch(Exception ex){
+                System.Console.WriteLine(ex);
             }
             Console.ReadLine();
         }
