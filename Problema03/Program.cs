@@ -7,11 +7,15 @@ namespace Problema03
     {
         static void Main(string[] args)
         {
-            Auto Auto1 = CrearAutoFiat(2020);            
-            MostrarAuto(Auto1);            
+            try{
+                Auto Auto1 = CrearAutoFiat(2020);            
+                MostrarAuto(Auto1);            
 
-            Auto Auto2 = CrearAutoPeugeot();
-            MostrarAuto(Auto2);
+                Auto Auto2 = CrearAutoPeugeot();
+                MostrarAuto(Auto2);
+            }catch(NullReferenceException ex){
+                System.Console.WriteLine(ex.Message);
+            }
         }
 
         static Auto CrearAutoFiat(int? anio = null)
@@ -26,6 +30,7 @@ namespace Problema03
                     Modelo = "Fiat"
                 };
             }
+            throw new NullReferenceException("El parametro es null");
 
             return auto;
         }
@@ -42,6 +47,7 @@ namespace Problema03
                     Modelo = "Peugeot"
                 };
             }
+            throw new NullReferenceException("El parametro es null");
 
             return auto;
         }
